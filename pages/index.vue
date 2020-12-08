@@ -20,7 +20,7 @@
           rel="noopener noreferrer"
           class="button--grey"
         >
-          GitHub
+          GitHub - Fork
         </a>
       </div>
     </div>
@@ -28,7 +28,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  
+}
 </script>
 
 <style>
