@@ -20,7 +20,7 @@
           rel="noopener noreferrer"
           class="button--grey"
         >
-          GitHub
+          GitHub - Fork
         </a>
       </div>
     </div>
