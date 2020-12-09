@@ -1,10 +1,11 @@
 <template>
     <div>
         karnurmax <br>
-        <!-- zhassulan96 <br>
-        zhussupov92 <br> -->
+        zhassulan96 <br>
+        zhussupov92 <br>
         domakov <br>
         bek-app <br>
         Aikhanym <br>
+        oljazzz <br>
     </div>
 </template>
