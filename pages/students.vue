@@ -1,6 +1,6 @@
 <template>
     <div>
-        BakdauletB <br>
+        BakdauletB  <br>
         <!-- zhassulan96 <br>
         zhussupov92 <br> -->
         
