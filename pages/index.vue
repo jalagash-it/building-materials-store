@@ -2,7 +2,9 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">building-materials-store</h1>
+      <h1 class="title">
+        building-materials-store ...
+      </h1>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -10,7 +12,7 @@
           rel="noopener noreferrer"
           class="button--green"
         >
-          Documentation
+         Құжаттама 
         </a>
         <a
           href="https://github.com/nuxt/nuxt.js"
@@ -18,7 +20,7 @@
           rel="noopener noreferrer"
           class="button--grey"
         >
-          GitHub - Work
+          GitHub - Dedor
         </a>
       </div>
     </div>
