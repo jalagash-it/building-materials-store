@@ -8,5 +8,6 @@
         Aikhanym <br>
         oljazzz <br>
         chingizof <br>
+        Didarchik <br>
     </div>
 </template>
