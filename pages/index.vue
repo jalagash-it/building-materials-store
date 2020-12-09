@@ -20,7 +20,7 @@
           rel="noopener noreferrer"
           class="button--grey"
         >
-          GitHub - Fork
+          GitHub - Dedor
         </a>
       </div>
     </div>
