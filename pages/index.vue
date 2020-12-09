@@ -3,7 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">
-        building-materials-store
+        building-materials-store ...
       </h1>
       <div class="links">
         <a
@@ -12,7 +12,7 @@
           rel="noopener noreferrer"
           class="button--green"
         >
-          Documentation
+         Құжаттама 
         </a>
         <a
           href="https://github.com/nuxt/nuxt.js"
