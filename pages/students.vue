@@ -1,8 +1,8 @@
 <template>
     <div>
-        BakdauletB   <br>
-        <!-- zhassulan96 <br>
-        zhussupov92 <br> -->
+        karnurmax <br>
+        BakdauletB <br>
+        
         
     </div>
 </template>
