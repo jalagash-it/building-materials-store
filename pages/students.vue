@@ -7,5 +7,6 @@
         bek-app <br>
         Aikhanym <br>
         oljazzz <br>
+        chingizof <br>
     </div>
 </template>
