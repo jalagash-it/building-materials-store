@@ -9,6 +9,7 @@
         Aikhanym <br>
         oljazzz <br>
         chingizof <br>
+        Didarchik <br>
         KyotoVC <br>
     </div>
 </template>
