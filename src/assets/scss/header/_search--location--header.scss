@@ -1,0 +1,223 @@
+/*
+// .search--location--header
+*/
+@import '../variables';
+@import '../svg';
+@import '../mixins/direction';
+
+
+$local-suggestion-transition: .2s;
+
+
+@mixin local-input-focus-state() {
+    @if ($header-type == white) {
+        .search__input:focus {
+            @content;
+        }
+    } @else {
+        .search__input:focus,
+        &.search--has-suggestions.search--suggestions-open .search__input {
+            @content;
+        }
+    }
+}
+
+
+.search--location--header {
+    .search__body {
+        position: relative;
+        z-index: 2;
+    }
+    .search__form {
+        height: $header-search-height;
+        display: flex;
+    }
+    .search__border {
+        position: absolute;
+        pointer-events: none;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: $header-search-border-radius;
+        transition: box-shadow .15s, background .15s;
+    }
+    .search__categories {
+        margin: 2px;
+        padding: 0 14px;
+        appearance: none;
+        border: none;
+        background-color: transparent;
+        color: $header-search-input-default-font-color;
+        font-size: 14px;
+        transition: background-color .2s;
+        max-width: 30%;
+        cursor: pointer;
+        border-radius: 0;
+        background-image: url(svg-select-arrow($header-search-input-default-arrows-color));
+        background-repeat: no-repeat;
+        background-size: 5px 10px;
+
+        @include direction {
+            #{$border-inline-end}: 2px solid $header-search-input-default-border-color;
+            #{$padding-inline-end}: 31px;
+            #{$margin-inline-end}: 0;
+            background-position: center $inline-end 13px;
+        }
+
+        &:hover {
+            background-color: #f5f5f5;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    .search__input {
+        border: none;
+        padding: 0 17px;
+        background: transparent;
+        width: 1px;
+        flex-grow: 1;
+        font-size: 15px;
+        transition: color .15s;
+        color: $header-search-input-default-font-color;
+
+        &::placeholder {
+            color: $header-search-input-default-placeholder;
+        }
+        & ~ .search__border {
+            background: $header-search-input-default-bg;
+            box-shadow: $header-search-input-default-shadow;
+        }
+    }
+    .search__input:hover {
+        color: $header-search-input-hover-font-color;
+
+        &::placeholder {
+            color: $header-search-input-hover-placeholder;
+        }
+        & ~ .search__border {
+            background: $header-search-input-hover-bg;
+            box-shadow: $header-search-input-hover-shadow;
+        }
+        & ~ .search__button {
+            fill: $header-search-input-hover-icon-color;
+
+            &:hover {
+                fill: $header-search-input-hover-icon-hover-color;
+            }
+        }
+    }
+    @include local-input-focus-state {
+        outline: none;
+        color: $header-search-input-focus-font-color;
+
+        &::placeholder {
+            color: $header-search-input-focus-placeholder;
+        }
+        & ~ .search__border {
+            background: $header-search-input-focus-bg;
+            box-shadow: $header-search-input-focus-shadow;
+        }
+        & ~ .search__button {
+            fill: $header-search-input-focus-icon-color;
+
+            &:hover {
+                fill: $header-search-input-focus-icon-hover-color;
+            }
+        }
+    }
+    .search__button {
+        border: none;
+        padding: 0;
+        background: transparent;
+        flex-grow: 0;
+        width: $header-search-height;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        fill: $header-search-input-default-icon-color;
+        transition: fill .15s;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            fill: $header-search-input-default-icon-hover-color;
+        }
+    }
+
+    @if ($header-type == white) {
+        .search__suggestions {
+            $local-expand: 12px;
+            $local-padding-top: 6px;
+            $local-padding-bottom: 10px;
+
+            z-index: -1;
+            position: absolute;
+            box-shadow: $header-search-suggestions-shadow;
+            background: $header-search-suggestions-bg;
+            left: -$local-expand;
+            top: -$local-expand;
+            width: calc(100% + #{$local-expand * 2});
+            padding-top: $header-search-height + $local-expand + $local-padding-top;
+            padding-bottom: $local-padding-bottom;
+            border-radius: 2px;
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transition:
+                opacity $local-suggestion-transition,
+                visibility 0s $local-suggestion-transition;
+        }
+        &.search--has-suggestions.search--suggestions-open {
+            .search__suggestions {
+                transition-delay: 0s, 0s;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+        }
+    } @else {
+        display: block;
+        height: $header-search-height;
+
+        .search__border {
+            z-index: -1;
+        }
+        .search__body {
+            display: flex;
+            flex-direction: column;
+        }
+        .search__categories {
+            margin: 0;
+
+            @include direction {
+                #{$border-start-start-radius}: $header-search-border-radius;
+                #{$border-end-start-radius}: $header-search-border-radius;
+                #{$border-inline-end}: 1px solid $header-search-input-default-border-color;
+            }
+
+            &:hover {
+                background-color: rgba(#000, .05);
+            }
+        }
+        .search__suggestions {
+            $local-padding-top: 6px;
+            $local-padding-bottom: 10px;
+
+            left: 0;
+            top: 0;
+            width: calc(100%);
+            border-top: 1px solid $header-search-suggestions-divider-color;
+            padding-top: $local-padding-top;
+            padding-bottom: $local-padding-bottom;
+            display: none;
+        }
+        &.search--has-suggestions.search--suggestions-open {
+            .search__suggestions {
+                display: block;
+            }
+        }
+    }
+}

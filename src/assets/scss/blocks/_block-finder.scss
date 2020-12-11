@@ -1,0 +1,231 @@
+/*
+// .block-finder
+*/
+@import '../variables';
+@import '../svg';
+@import '../mixins/direction';
+
+
+@mixin local-form-layout($column-width, $columns, $gutter) {
+    .block-finder__form {
+        margin: #{-$gutter / 2};
+        width: $column-width * $columns + $columns * $gutter;
+    }
+    .block-finder__form-item {
+        width: calc(100% / #{$columns} - #{$gutter});
+        margin: #{$gutter / 2};
+    }
+}
+
+
+.block-finder {
+    margin-bottom: $block-margin-bottom;
+}
+.block-finder--layout--full {
+    margin-top: 20px;
+}
+.block-finder__body {
+    padding: 0 52px 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 400px;
+    background: $block-finder-bg-color no-repeat bottom center;
+    color: $block-finder-font-color;
+}
+.block-finder__header {
+    padding: 46px 0 36px;
+}
+.block-finder__title {
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: $font-weight-bold;
+}
+.block-finder__subtitle {
+    margin-top: 2px;
+    font-size: 17px;
+    line-height: 1.25;
+    color: $block-finder-font-alt-color;
+}
+.block-finder__form {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+}
+.block-finder__button {
+    margin-top: 40px;
+    height: 43px;
+    padding-left: 44px;
+    padding-right: 44px;
+    font-size: 17px;
+}
+
+
+
+.block-finder__select,
+.block-finder__select + .select2-container--default {
+    width: 100%;
+}
+
+// normal
+.block-finder__select,
+.block-finder__select + .select2-container--default .select2-selection--single {
+    height: 42px;
+    border: none;
+    border-radius: 2px;
+    box-shadow: $block-finder-select-shadow;
+    cursor: pointer;
+    background: $block-finder-select-bg-color url(svg-select-arrow($block-finder-select-arrow-color)) no-repeat;
+    background-size: 5px 10px;
+
+    @include direction {
+        background-position: $inline-end 12px center;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.block-finder__select,
+.block-finder__select + .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: $block-finder-select-font-color;
+
+    @include direction {
+        #{$padding-inline-start}: 13px;
+        #{$padding-inline-end}: 13px * 2 + 5px;
+        text-align: $inline-start;
+    }
+}
+
+// disabled
+.block-finder__select:disabled,
+.block-finder__select + .select2-container--disabled .select2-selection--single {
+    background-color: $block-finder-select-disabled-bg-color;
+    box-shadow: $block-finder-select-disabled-shadow;
+    opacity: $block-finder-select-disabled-opacity;
+    cursor: default;
+}
+
+.block-finder__select:disabled,
+.block-finder__select + .select2-container--disabled .select2-selection--single .select2-selection__rendered {
+    color: $block-finder-select-disabled-font-color;
+}
+
+
+.block-finder__select {
+    transition:
+        background-color .15s,
+        box-shadow .15s,
+        color .15s,
+        opacity .15s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+.block-finder__select + .select2-container--default .select2-selection--single {
+    transition:
+        background-color .15s,
+        box-shadow .15s,
+        opacity .15s;
+}
+.block-finder__select + .select2-container--default .select2-selection--single .select2-selection__rendered {
+    transition: color .15s;
+}
+
+
+// select2 hide arrow
+.block-finder__select + .select2-container--default .select2-selection--single {
+    display: flex;
+    align-items: center;
+}
+// select2 hide arrow
+.block-finder__select + .select2-container--default .select2-selection__arrow {
+    display: none;
+}
+
+
+.block-finder--layout--with-departments {
+    $local-margin: 15px;
+
+    .block-finder__body {
+        margin-top: $local-margin;
+    }
+
+    @media (min-width: breakpoint(lg-start)) {
+        .block-finder__body {
+            margin-top: $local-margin;
+            height: 410px - $local-margin;
+
+            @include direction {
+                #{$margin-inline-start}: (30px - $local-margin) * -1;
+            }
+        }
+        .block-finder__select,
+        .block-finder__select + .select2-container--default .select2-selection--single {
+            height: 40px;
+        }
+    }
+
+    @media (min-width: breakpoint(xl-start)) {
+        @include local-form-layout(170px, 4, 12px);
+    }
+
+    @media (min-width: breakpoint(lg-start)) and (max-width: breakpoint(lg-end)) {
+        @include local-form-layout(200px, 2, 12px);
+
+        .block-finder__header {
+            padding-bottom: 32px;
+        }
+        .block-finder__button {
+            margin-top: 36px;
+        }
+    }
+}
+
+.block-finder--layout--full {
+    @media (min-width: breakpoint(lg-start)) {
+        @include local-form-layout(190px, 4, 14px);
+    }
+}
+
+@media (max-width: breakpoint(md-end)) {
+    .block-finder__header {
+        padding-bottom: 28px;
+    }
+    .block-finder__button {
+        margin-top: 32px;
+    }
+
+    @include local-form-layout(200px, 2, 14px);
+}
+@media (max-width: breakpoint(sm-end)) {
+    .block-finder__header {
+        padding-top: 40px;
+    }
+    .block-finder__title {
+        font-size: 28px;
+        line-height: 30px;
+    }
+    .block-finder__subtitle {
+        margin-top: 8px;
+        font-size: 16px;
+    }
+}
+@media (max-width: breakpoint(xs-end)) {
+    .block-finder__body {
+        height: auto;
+    }
+
+    @include local-form-layout(220px, 1, 14px);
+
+    .block-finder__select,
+    .block-finder__select + .select2-container--default .select2-selection--single {
+        height: 40px;
+    }
+}

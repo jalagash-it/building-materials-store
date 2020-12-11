@@ -1,0 +1,129 @@
+/*
+// .mobile-header
+*/
+@import '../variables';
+@import '../functions';
+@import '../mixins/direction';
+
+
+.mobile-header {
+    height: $nav-panel-height;
+}
+.mobile-header__panel {
+    z-index: 10;
+    position: relative;
+    background: $nav-panel-bg;
+    box-shadow: $nav-panel-shadow;
+    color: $nav-panel-font-color;
+}
+.mobile-header--stuck {
+    .mobile-header__panel {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        box-shadow: $nav-panel-stuck-shadow;
+        transform: translateY(-150%);
+        transition: transform .3s ease-in-out;
+        will-change: transform;
+    }
+}
+.mobile-header--stuck.mobile-header--show {
+    .mobile-header__panel {
+        transform: none;
+    }
+}
+.mobile-header__body {
+    display: flex;
+    align-items: center;
+    height: $nav-panel-height;
+}
+.mobile-header__menu-button {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: $mobile-header-menu-button-border-radius;
+    background: $mobile-header-menu-button-default-bg;
+    fill: $mobile-header-menu-button-default-color;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: fill .2s, background .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus,
+    &:hover {
+        background: $mobile-header-menu-button-hover-bg;
+        fill: $mobile-header-menu-button-hover-color;
+    }
+}
+.mobile-header__indicators {
+    display: flex;
+
+    @include direction {
+        #{$margin-inline-start}: auto;
+    }
+}
+.mobile-header__logo {
+    margin: 0;
+    color: inherit;
+    fill: currentColor;
+
+    @include direction {
+        #{$margin-inline-end}: 16px;
+        #{$margin-inline-start}: 12px;
+    }
+
+    &:hover {
+        color: inherit;
+    }
+
+    svg {
+        display: block;
+    }
+}
+
+
+@media (min-width: breakpoint(md-start)) and (max-width: breakpoint(md-end)) {
+    .mobile-header__search {
+        flex-grow: 1;
+        height: 36px;
+
+        @include direction {
+            #{$margin-inline-end}: 8px;
+        }
+    }
+}
+@media (max-width: breakpoint(sm-end)) {
+    .mobile-header__search {
+        top: 0;
+        width: 100%;
+        position: absolute;
+        background: $offcanvas-search-bg;
+        box-shadow: $offcanvas-search-shadow;
+        z-index: 1;
+        transform: translateY(-54px);
+        visibility: hidden;
+        opacity: 0;
+        transition: transform .3s ease-in-out, visibility 0s .3s, opacity .3s;
+        display: flex;
+        pointer-events: none;
+
+        @include direction {
+            #{$inset-inline-start}: 0;
+        }
+    }
+    .mobile-header__search--open {
+        pointer-events: auto;
+        transition-delay: 0s, 0s;
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
+    }
+}

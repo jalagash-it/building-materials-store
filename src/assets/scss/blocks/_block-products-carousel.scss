@@ -1,0 +1,174 @@
+/*
+// .block-products-carousel
+*/
+@import '../variables';
+@import '../functions';
+@import '../mixins/product-card';
+@import '../mixins/preloader';
+
+
+.block-products-carousel {
+    pointer-events: none;
+
+    .swiper-container {
+        padding-bottom: 100px;
+        margin-bottom: -100px;
+        pointer-events: auto;
+    }
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+    .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .block-header {
+        pointer-events: auto;
+    }
+}
+.block-products-carousel__slider {
+    position: relative;
+    min-height: 200px;
+    z-index: 2;
+}
+.block-products-carousel__preloader {
+    pointer-events: auto;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 100px;
+    background: $block-products-carousel-preloader-bg;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, visibility 0s .3s;
+
+    &:after {
+        @include preloader(100px);
+    }
+}
+.block-products-carousel--loading .block-products-carousel__preloader {
+    transition-delay: 0s, 0s;
+    opacity: 1;
+    visibility: visible;
+}
+.block-products-carousel__column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    @include only-ie {
+        display: block;
+    }
+}
+.block-products-carousel__cell {
+    display: flex;
+    width: 100%;
+    flex-basis: 100%;
+    flex-grow: 1;
+
+    & + & {
+        margin-top: 14px;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+}
+
+
+.block-products-carousel[data-layout^="grid-"] {
+    .product-card {
+        @include product-card-grid();
+    }
+
+    &[data-mobile-grid-columns="2"] {
+        @media (max-width: 374px) {
+            .product-card {
+                @include product-card-grid-xs();
+            }
+        }
+        @media (max-width: 419px) {
+            .block-products-carousel__slider {
+                margin: 0 -16px;
+            }
+            .block-products-carousel__cell + .block-products-carousel__cell {
+                margin-top: -1px;
+            }
+            .product-card::before {
+                border-radius: 0;
+            }
+            .product-card__quickview {
+                @include direction {
+                    #{$border-start-end-radius}: 0;
+                }
+            }
+
+            .active + .active {
+                .product-card::before {
+                    width: calc(100% + 1px);
+
+                    @include direction {
+                        #{$inset-inline-start}: -1px;
+                    }
+                }
+            }
+
+            .swiper-slide:hover {
+                z-index: 1;
+            }
+        }
+    }
+}
+.block-products-carousel[data-layout="grid-4"] {
+    .product-card {
+        @include product-card-grid-nl();
+    }
+
+    @media (min-width: breakpoint(md-start)) and (max-width: breakpoint(lg-end)) {
+        .product-card {
+            @include product-card-grid-sm();
+        }
+    }
+
+    &[data-mobile-grid-columns="2"] {
+        @media (max-width: breakpoint(xs-end)) and (min-width: 375px) {
+            .product-card {
+                @include product-card-grid-sm();
+            }
+        }
+    }
+    &:not([data-mobile-grid-columns="2"]) {
+        @media (max-width: breakpoint(xs-end)) {
+            .product-card {
+                @include product-card-grid-sm();
+            }
+        }
+    }
+}
+.block-products-carousel[data-layout="grid-4-sm"],
+.block-products-carousel[data-layout="grid-5"] {
+    &[data-mobile-grid-columns="2"] {
+        @media (min-width: 375px) {
+            .product-card {
+                @include product-card-grid-sm();
+            }
+        }
+    }
+    &:not([data-mobile-grid-columns="2"]) {
+        .product-card {
+            @include product-card-grid-sm();
+        }
+    }
+}
+
+
+.block-products-carousel[data-layout="horizontal"] {
+    .product-card {
+        @include product-card-horizontal();
+    }
+}
