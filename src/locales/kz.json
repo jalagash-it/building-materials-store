@@ -1,0 +1,34 @@
+{
+    "header": {
+        "topbar": {
+            "aboutUs": "Біз Жайлы",
+            "Contacts": "Байланыс телефондары",
+            "StoreLocation": "Дүкен мекен-жайы",
+            "TrackOrder": "Тапсырысты бақылау",
+            "Blog": "Блог",
+            "MyAccount": "Менің аккаунтым",
+            "Currency": "Валюта",
+            "Language:": "Тіл"
+        },
+        "search": {
+            "AllCategories": "Барлық санаттар"
+        },
+        "site-header": {
+          "CustomerService": "Тұтынушыға қызмет ету"
+        },
+        "departments": {
+          "ShopByCategory": "Дүкен санаттары бойынша"
+      }
+    },
+    "main": {
+        "featuredProducts": "Ұсынылған тауарлар",
+        "popularCategories": "Танымал Санаттар",
+        "Bestsellers": "Таңдамалы",
+        "NewArrivals": "Жаңа түсімдер",
+        "LatestNews": "Соңғы жаңалықтар "
+
+    },
+    "common": {
+        "all": "Барлығы"
+    }
+}
