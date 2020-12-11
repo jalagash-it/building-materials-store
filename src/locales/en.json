@@ -19,5 +19,8 @@
     "departments": {
       "ShopByCategory": "Shop By Category"
   }
-  }
+  },
+  "main": {
+    "featuredProducts": "Features products" 
+ }
 }
