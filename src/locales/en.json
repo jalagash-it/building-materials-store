@@ -21,7 +21,11 @@
         }
     },
     "main": {
-        "featuredProducts": "Features products"
+        "featuredProducts": "Features products",
+        "popularCategories": "Popular categories",
+        "Bestsellers": "Bestsellers",
+        "NewArrivals": "New arrivals",
+        "LatestNews": "Latest news"
     },
     "common": {
         "all": "All"
