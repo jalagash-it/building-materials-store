@@ -15,7 +15,7 @@
             </div>
             <div class="site-header__phone">
                 <div class="site-header__phone-title">
-                    Customer Service
+                    {{ $t('header.site-header.CustomerService') }}
                 </div>
                 <div class="site-header__phone-number">
                     {{ theme.contacts.phone }}
