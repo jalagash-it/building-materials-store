@@ -9,7 +9,16 @@
             "MyAccount": "Мой аккаунт",
             "Currency": "Валюта",
             "Language:": "Язык"
-        }
+        },
+        "search": {
+            "AllCategories": "Все категории"
+        },
+        "site-header": {
+          "CustomerService": "Обслуживание клиентов"
+        },
+        "departments": {
+          "ShopByCategory": "Магазин по категориям"
+      }
     },
     "main": {
         "featuredProducts": "Рекомендуемые товары",

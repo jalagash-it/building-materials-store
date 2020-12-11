@@ -9,6 +9,15 @@
       "MyAccount": "My Account",
       "Currency": "Currency",
       "Language:": "Language:"
-    }
+    },
+    "search": {
+      "AllCategories": "All Categories"
+  },
+    "site-header": {
+      "CustomerService": "Customer Service"
+  },
+    "departments": {
+      "ShopByCategory": "Shop By Category"
+  }
   }
 }
