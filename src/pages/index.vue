@@ -28,14 +28,14 @@
         <BlockBanner />
 
         <BlockProducts
-            title="Bestsellers"
+            :title="$t('main.Bestsellers')"
             layout="large-first"
             :featured-product="(bestsellers || [])[0]"
             :products="(bestsellers || []).slice(1, 7)"
         />
 
         <BlockCategories
-            title="Popular Categories"
+            :title="$t('main.popularCategories')"
             layout="classic"
             :categories="categories"
         />
@@ -52,7 +52,7 @@
             :data-source="latestProductsSource"
         >
             <BlockProductsCarousel
-                title="New Arrivals"
+                :title="$t('main.NewArrivals')"
                 layout="horizontal"
                 :rows="2"
                 :products="products"
@@ -63,7 +63,7 @@
         </BlockProductsCarouselContainer>
 
         <BlockPosts
-            title="Latest News"
+            :title="$t('main.LatestNews')"
             layout="list"
             :posts="posts"
         />
