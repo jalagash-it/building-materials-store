@@ -19,5 +19,12 @@
     "departments": {
       "ShopByCategory": "Shop By Category"
   }
+  },
+  "main": {
+      "featuredProducts": "Featured Products",
+      "popularCategories": "Popular Categories",
+      "Bestsellers": "Bestsellers",
+      "NewArrivals": "New Arrivals",
+      "LatestNews": "Latest News"
   }
 }
