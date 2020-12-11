@@ -1,26 +1,29 @@
 {
-  "header": {
-    "topbar": {
-      "aboutUs": "About Us",
-      "Contacts": "Contacts",
-      "StoreLocation": "Store Location",
-      "TrackOrder": "Track Order",
-      "Blog": "Blog",
-      "MyAccount": "My Account",
-      "Currency": "Currency",
-      "Language:": "Language:"
+    "header": {
+        "topbar": {
+            "aboutUs": "About Us",
+            "Contacts": "Contacts",
+            "StoreLocation": "Store Location",
+            "TrackOrder": "Track Order",
+            "Blog": "Blog",
+            "MyAccount": "My Account",
+            "Currency": "Currency",
+            "Language:": "Language:"
+        },
+        "search": {
+            "AllCategories": "All Categories"
+        },
+        "site-header": {
+            "CustomerService": "Customer Service"
+        },
+        "departments": {
+            "ShopByCategory": "Shop By Category"
+        }
     },
-    "search": {
-      "AllCategories": "All Categories"
-  },
-    "site-header": {
-      "CustomerService": "Customer Service"
-  },
-    "departments": {
-      "ShopByCategory": "Shop By Category"
-  }
-  },
-  "main": {
-    "featuredProducts": "Features products" 
- }
+    "main": {
+        "featuredProducts": "Features products"
+    },
+    "common": {
+        "all": "All"
+    }
 }

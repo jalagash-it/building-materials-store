@@ -43,7 +43,7 @@
         <BlockProductsCarouselContainer
             v-slot:default="{ products, isLoading, tabs, handleTabChange }"
             :tabs="[
-                { id: 1, name: 'All', categorySlug: undefined },
+                { id: 1, name:  $t('all'), categorySlug: undefined },
                 { id: 2, name: 'Power Tools', categorySlug: 'power-tools' },
                 { id: 3, name: 'Hand Tools', categorySlug: 'hand-tools' },
                 { id: 4, name: 'Plumbing', categorySlug: 'plumbing' }
