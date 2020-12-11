@@ -1,7 +1,10 @@
 {
-  "header": {
-    "topbar": {
-      "aboutUs": "About Us"
+    "header": {
+        "topbar": {
+            "aboutUs": "About Us"
+        }
+    },
+    "common": {
+        "all": "все"
     }
-  }
 }

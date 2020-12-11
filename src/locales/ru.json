@@ -6,5 +6,8 @@
     },
     "main": {
         "featuredProducts": "Рекомендуемые товары"
+    },
+    "common": {
+        "all": "все"
     }
 }
