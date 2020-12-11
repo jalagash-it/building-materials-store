@@ -1,0 +1,102 @@
+/*
+// .totop
+*/
+@import '../variables';
+@import '../mixins/direction';
+
+
+$local-size: 39px;
+$local-bottom: 36px;
+$local-margin-start: 80px;
+$local-margin-end: 24px;
+
+
+.totop {
+    position: relative;
+    z-index: 9;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+        opacity .3s,
+        visibility 0s .3s;
+}
+.totop__body {
+    position: fixed;
+    bottom: $local-bottom;
+    left: 0;
+    top: auto;
+    width: 100%;
+    display: flex;
+    margin-top: -(ceil($local-size / 2));
+}
+.totop__container {
+    margin: 0 -15px;
+}
+.totop__start,
+.totop__end {
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+}
+.totop__end {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+
+    &:before {
+        content: '';
+        flex-grow: 1;
+    }
+}
+.totop__button {
+    pointer-events: auto;
+    width: $local-size;
+    height: $local-size;
+    border-radius: $local-size / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    color: $btn-primary-font-color;
+    background: $btn-primary-bg-color;
+    fill: currentColor;
+    flex-shrink: 0;
+    transition:
+        background-color .15s,
+        color .15s;
+
+    @include direction {
+        #{$margin-inline-start}: $local-margin-start;
+        #{$margin-inline-end}: $local-margin-end;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            color: $btn-primary-hover-font-color;
+            background: $btn-primary-hover-bg-color;
+        }
+    }
+
+    &:active {
+        color: $btn-primary-active-font-color;
+        background: $btn-primary-active-bg-color;
+    }
+
+    svg {
+        margin-top: -2px;
+        margin-bottom: 1px;
+    }
+}
+.totop--show {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s, 0s;
+}

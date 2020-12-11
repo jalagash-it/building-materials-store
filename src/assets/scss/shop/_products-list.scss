@@ -1,0 +1,166 @@
+/*
+// .products-list
+*/
+@import '../variables';
+@import '../functions';
+@import '../mixins/product-card';
+
+
+@mixin local-layout($columns: 1, $margin-vertical: 0, $margin-horizontal: 0, $horizontal-expand: 0) {
+    $margin-vertical: $margin-vertical + 0px;
+    $margin-horizontal: $margin-horizontal + 0px;
+
+    .products-list__body {
+        margin: #{-$margin-vertical} #{-$margin-horizontal - $horizontal-expand};
+    }
+    .products-list__item {
+        @if ($columns == 1) {
+            width: 100%;
+        } @else {
+            width: calc(#{100% / $columns} - #{$margin-horizontal*2});
+        }
+        margin: $margin-vertical $margin-horizontal;
+    }
+}
+
+
+.products-list {}
+.products-list__body {
+    display: flex;
+    flex-wrap: wrap;
+}
+.products-list__item {
+    display: flex;
+
+    .product-card {
+        width: 100%;
+        flex-shrink: 0;
+    }
+}
+
+
+
+// Grid
+$local-grid-one-column-from: 420px;
+$local-grid-compact-from: 420px;
+$local-grid-compact-to: 320px;
+
+.products-list[data-layout^="grid-"] {
+    .product-card {
+        @include product-card-grid();
+    }
+
+    &[data-with-features="true"] .product-card {
+        @include product-card-grid-with-features();
+    }
+}
+.products-list[data-layout="grid-3-sidebar"] {
+    @include local-layout(3, 8px, 6px);
+}
+.products-list[data-layout="grid-4-full"] {
+    @include local-layout(4, 8px, 6px);
+}
+.products-list[data-layout="grid-3-sidebar"],
+.products-list[data-layout="grid-4-full"] {
+    .product-card {
+        @include product-card-grid-nl();
+    }
+
+    &[data-mobile-grid-columns="1"] {
+        @media (max-width: breakpoint(lg-end)) and (min-width: $local-grid-one-column-from) {
+            .product-card {
+                @include product-card-grid-sm();
+            }
+        }
+    }
+    &[data-mobile-grid-columns="2"] {
+        @media (max-width: breakpoint(lg-end)) and (min-width: 375px) {
+            .product-card {
+                @include product-card-grid-sm();
+            }
+        }
+    }
+}
+.products-list[data-layout="grid-5-full"] {
+    @include local-layout(5, 8px, 6px);
+
+    @media (max-width: breakpoint(lg-end)) and (min-width: breakpoint(lg-start)) {
+        @include local-layout(4, 8px, 6px);
+    }
+
+    &[data-mobile-grid-columns="1"] {
+        @media (min-width: $local-grid-one-column-from) {
+            .product-card {
+                @include product-card-grid-sm();
+            }
+        }
+    }
+    &[data-mobile-grid-columns="2"] {
+        @media (min-width: 375px) {
+            .product-card {
+                @include product-card-grid-sm();
+            }
+        }
+    }
+}
+.products-list[data-layout^="grid-"] {
+    @media (max-width: breakpoint(md-end)) and (min-width: breakpoint(md-start)) {
+        @include local-layout(3, 8px, 6px);
+    }
+
+    &[data-mobile-grid-columns="1"] {
+        @media (max-width: breakpoint(sm-end)) and (min-width: $local-grid-one-column-from) {
+            @include local-layout(2, 8px, 6px);
+        }
+        @media (max-width: $local-grid-one-column-from - 1px) {
+            @include local-layout(1, 8px, 6px);
+        }
+    }
+    &[data-mobile-grid-columns="2"] {
+        @media (max-width: 374px) {
+            .product-card {
+                @include product-card-grid-xs();
+            }
+        }
+        @media (max-width: breakpoint(sm-end)) and (min-width: $local-grid-compact-from) {
+            @include local-layout(2, 5px, 5px);
+        }
+        @media (max-width: $local-grid-compact-from - 1px) and (min-width: $local-grid-compact-to) {
+            @include local-layout(2, 0, 0, 15px);
+
+            .product-card::before {
+                border-radius: 0;
+            }
+            .products-list__item:nth-child(2n - 1) .product-card {
+                width: calc(100% + 1px);
+                padding-right: 2px;
+            }
+            .products-list__item:nth-child(n + 3) .product-card {
+                margin-top: -1px;
+            }
+            .product-card__quickview {
+                @include direction {
+                    #{$border-start-end-radius}: 0;
+                }
+            }
+        }
+        @media (max-width: $local-grid-compact-to - 1px) {
+            @include local-layout(1, 8px, 6px);
+        }
+    }
+}
+
+
+
+
+.products-list[data-layout="list"] {
+    @include local-layout(1, 8px);
+
+    .products-list__item {
+        display: block;
+    }
+
+    .product-card {
+        @include product-card-list();
+    }
+}

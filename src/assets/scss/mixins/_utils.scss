@@ -1,0 +1,8 @@
+@mixin local-padding-x($padding) {
+    padding-left: $padding;
+    padding-right: $padding;
+}
+@mixin local-padding-y($padding) {
+    padding-top: $padding;
+    padding-bottom: $padding;
+}

@@ -1,0 +1,69 @@
+/*
+// .social-links
+*/
+@import '../variables';
+
+
+$local-gutter: 7px;
+
+
+.social-links {}
+.social-links__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 (-$local-gutter) (-$local-gutter);
+    display: flex;
+    flex-wrap: wrap;
+}
+.social-links__item {
+    flex-shrink: 0;
+    margin-left: $local-gutter;
+    margin-bottom: $local-gutter;
+}
+.social-links__link {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    transition: all .2s;
+    background: $social-links-bg-color;
+
+    &,
+    &:hover {
+        color: $social-links-font-color;
+    }
+
+    &:hover {
+        opacity: .8;
+    }
+}
+
+
+.social-links--shape--circle {
+    .social-links__link {
+        border-radius: 17px;
+    }
+}
+.social-links--shape--rounded {
+    .social-links__link {
+        border-radius: 2px;
+    }
+}
+
+
+@each $type, $link in $social-links {
+    .social-links__link--type--#{$type} {
+        @if (map_get($link, bg-color) != $social-links-bg-color) {
+            background: map_get($link, bg-color);
+        }
+        @if (map_get($link, font-color) != $social-links-font-color) {
+            &,
+            &:hover {
+                color: map_get($link, font-color);
+            }
+        }
+
+    }
+}

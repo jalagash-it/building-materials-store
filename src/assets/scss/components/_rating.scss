@@ -1,0 +1,84 @@
+/*
+// .rating
+*/
+@import '../variables';
+@import '../mixins/hacks';
+@import '../mixins/direction';
+
+
+.rating {}
+.rating__body {
+    display: flex;
+}
+.rating__star {
+    & + & {
+        @include direction {
+            #{$margin-inline-start}: 3px;
+        }
+    }
+}
+.rating__star:first-child + .rating__star--only-edge  {
+    @include direction {
+        #{$margin-inline-start}: 0;
+    }
+}
+.rating__fill {
+    color: $rating-star-default-color;
+    fill: currentColor;
+}
+.rating__stroke {
+    color: $rating-star-default-stroke-color;
+    fill: currentColor;
+}
+.rating__star--active {
+    .rating__fill {
+        color: $rating-star-active-color;
+    }
+    .rating__stroke {
+        color: $rating-star-active-stroke-color;
+    }
+}
+.rating__star--only-edge {
+    position: relative;
+    display: none;
+}
+
+
+@include only-edge() {
+    svg.rating__star {
+        display: none;
+    }
+
+    .rating__star--only-edge {
+        display: block;
+    }
+
+    .rating__fill .fake-svg-icon,
+    .rating__stroke .fake-svg-icon {
+        display: block;
+        align-items: center;
+        justify-content: center;
+        width: 13px;
+        height: 12px;
+        font-size: 12px;
+    }
+
+    .rating__fill .fake-svg-icon {
+        &::before {
+            content: '\e902';
+        }
+    }
+    .rating__stroke {
+        position: absolute;
+        top: 0;
+
+        @include direction {
+            #{$inset-inline-start}: 0;
+        }
+    }
+    .rating__stroke .fake-svg-icon {
+        &::before {
+            content: '\e903';
+        }
+    }
+}

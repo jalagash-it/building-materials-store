@@ -1,0 +1,148 @@
+/*
+// .about-us
+*/
+@import '../variables';
+@import '../functions';
+
+
+.about-us {}
+.about-us__image {
+    background-size: cover;
+    background-position: bottom center;
+    height: 500px;
+}
+.about-us__body {
+    background: $body-bg;
+    min-height: 380px;
+    margin-top: -380px;
+    border-radius: 4px 4px 0 0;
+    padding: 75px 92px;
+}
+.about-us__title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.about-us__text {
+    text-align: center;
+}
+.about-us__team {
+    margin-top: 75px;
+    text-align: center;
+}
+.about-us__team-subtitle {
+    margin-top: 24px;
+}
+.about-us__teammates {
+    margin-top: 42px;
+}
+
+
+.teammates {
+    .swiper-pagination {
+        position: static;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .swiper-pagination-bullet {
+        display: block;
+        width: auto;
+        height: auto;
+        transition: color .2s;
+        background: transparent;
+        opacity: 1;
+        color: $teammates-dot-default-color;
+
+        &:before {
+            $local-dot-size: 12px;
+
+            display: block;
+            content: '';
+            margin: 6px;
+            width: $local-dot-size;
+            height: $local-dot-size;
+            border-radius: $local-dot-size / 2;
+            background: currentColor;
+        }
+
+        &:hover {
+            color: $teammates-dot-hover-color;
+        }
+    }
+    .swiper-pagination-bullet-active {
+        &,
+        &:hover {
+            color: $teammates-dot-active-color;
+        }
+    }
+    .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0;
+    }
+    .swiper-pagination-lock {
+        display: none;
+    }
+}
+
+.teammate__avatar {
+    img {
+        max-width: 100%;
+        border-radius: 2px;
+    }
+}
+.teammate__name {
+    font-size: 18px;
+    font-weight: $font-weight-medium;
+    margin-top: 16px;
+}
+.teammate__position {
+    font-size: 14px;
+}
+
+
+
+@media (max-width: breakpoint(md-end)) and (min-width: breakpoint(md-start)) {
+    .about-us__image {
+        height: 460px;
+    }
+    .about-us__title {
+        margin-bottom: 36px;
+    }
+    .about-us__body {
+        padding: 50px;
+    }
+    .about-us__team {
+        margin-top: 75px;
+    }
+}
+@media (max-width: breakpoint(sm-end)) and (min-width: breakpoint(sm-start)) {
+    .about-us__image {
+        height: 360px;
+    }
+    .about-us__title {
+        margin-bottom: 24px;
+    }
+    .about-us__body {
+        min-height: 290px;
+        margin-top: -290px;
+        padding: 40px;
+    }
+    .about-us__team {
+        margin-top: 50px;
+    }
+}
+@media (max-width: breakpoint(sm-end)) {
+    .about-us__image {
+        height: 330px;
+    }
+    .about-us__body {
+        min-height: 290px;
+        margin-top: -290px;
+        padding: 30px 24px;
+    }
+    .about-us__title {
+        margin-bottom: 20px;
+    }
+    .about-us__team {
+        margin-top: 50px;
+    }
+}

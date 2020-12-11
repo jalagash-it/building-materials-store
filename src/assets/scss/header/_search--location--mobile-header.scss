@@ -1,0 +1,201 @@
+/*
+// .search--location--mobile-header
+*/
+@import '../variables';
+@import '../functions';
+@import '../mixins/direction';
+
+
+.search--location--mobile-header {
+    .search__suggestions {
+        border-top: 1px solid $mobile-header-search-suggestions-divider-color;
+        padding: 6px 0;
+        display: none;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
+    }
+    .mobile-header:not(.mobile-header--stuck) &.search--has-suggestions.search--suggestions-open,
+    .mobile-header--stuck.mobile-header--show &.search--has-suggestions.search--suggestions-open {
+        .search__suggestions {
+            display: block;
+        }
+    }
+
+    @media (min-width: breakpoint(md-start)) and (max-width: breakpoint(md-end)) {
+        .search__body {
+            position: relative;
+            z-index: 2;
+        }
+        .search__form {
+            height: 36px;
+            display: flex;
+        }
+        .search__input {
+            position: relative;
+            z-index: 1;
+            flex-basis: 0;
+            width: 0;
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            padding: 0 12px;
+            margin: 0;
+            font-family: inherit;
+            font-size: 15px;
+            color: $mobile-header-search-input-default-font-color;
+
+            &::placeholder {
+                color: $mobile-header-search-input-default-placeholder;
+            }
+
+            &:hover {
+                color: $mobile-header-search-input-hover-font-color;
+
+                &::placeholder {
+                    color: $mobile-header-search-input-hover-placeholder;
+                }
+            }
+        }
+        &.search--has-suggestions.search--suggestions-open .search__input,
+        .search__input:focus {
+            color: $mobile-header-search-input-focus-font-color;
+            outline: none;
+
+            &::placeholder {
+                color: $mobile-header-search-input-focus-placeholder;
+            }
+        }
+        .search__border {
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: $mobile-header-search-input-default-bg;
+            box-shadow: $mobile-header-search-input-default-shadow;
+            transition: all .2s;
+            border-radius: 2px;
+            z-index: -1;
+
+            @include direction {
+                #{$inset-inline-start}: 0;
+            }
+        }
+        .search__button {
+            position: relative;
+            z-index: 1;
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+            width: 36px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            fill: $mobile-header-search-input-default-icon-color;
+            transition: fill .2s;
+
+            &:focus {
+                outline: none;
+            }
+            &:focus,
+            &:hover {
+                fill: $mobile-header-search-input-default-icon-hover-color;
+            }
+        }
+        .search__button--type--close {
+            display: none;
+        }
+
+        .search__input:hover ~ {
+            & .search__button {
+                fill: $mobile-header-search-input-hover-icon-color;
+
+                &:focus,
+                &:hover {
+                    fill: $mobile-header-search-input-hover-icon-hover-color;
+                }
+            }
+            & .search__border {
+                background: $mobile-header-search-input-hover-bg;
+                box-shadow: $mobile-header-search-input-hover-shadow;
+            }
+        }
+        &.search--has-suggestions.search--suggestions-open,
+        .search__input:focus ~ {
+            & .search__button {
+                fill: $mobile-header-search-input-focus-icon-color;
+
+                &:focus,
+                &:hover {
+                    fill: $mobile-header-search-input-focus-icon-hover-color;
+                }
+            }
+            & .search__border {
+                background: $mobile-header-search-input-focus-bg;
+                box-shadow: $mobile-header-search-input-focus-shadow;
+            }
+        }
+    }
+    @media (max-width: breakpoint(sm-end)) {
+        .search__body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .search__form {
+            display: flex;
+            height: 54px;
+            flex-shrink: 0;
+        }
+        .search__input {
+            flex-grow: 1;
+            flex-basis: 0;
+            width: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+
+            @include direction {
+                #{$padding-inline-start}: 15px;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                color: $offcanvas-search-placeholder-color;
+            }
+        }
+        .search__button {
+            flex-shrink: 0;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            cursor: pointer;
+            fill: $offcanvas-search-button-default-color;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus,
+            &:hover {
+                fill: $offcanvas-search-button-hover-color;
+            }
+        }
+        .search__button--type--close {
+            @include direction {
+                #{$border-inline-start}: 1px solid $offcanvas-search-divider-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+/*
+// .search--location--indicator
+*/
+@import '../variables';
+@import '../mixins/direction';
+
+
+$local-height: 50px;
+$local-width: 340px;
+
+
+.search--location--indicator {
+    .search__body {
+        color: $indicator-search-font-color;
+        background: $indicator-search-bg;
+        box-shadow: $indicator-search-shadow;
+        width: $local-width;
+    }
+    .search__form {
+        display: flex;
+        height: $local-height;
+    }
+    .search__suggestions {
+        border-top: 1px solid $indicator-search-suggestions-divider-color;
+        padding: 6px 0;
+        display: none;
+    }
+    .search__input,
+    .search__button {
+        border: none;
+        padding: 0;
+        background: transparent;
+
+        &:focus {
+            outline: none;
+        }
+    }
+    .search__input {
+        padding: 0;
+        flex-grow: 1;
+        flex-basis: 0;
+        width: 0;
+
+        @include direction {
+            #{$padding-inline-start}: 18px;
+        }
+    }
+    .search__button {
+        flex-shrink: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: $local-height + 2px;
+        fill: $indicator-search-button-default-color;
+        transition: fill .2s;
+    }
+    .search__button:hover {
+        fill: $indicator-search-button-hover-color;
+    }
+
+    &.search--has-suggestions {
+        .search__suggestions {
+            display: block;
+        }
+    }
+}
