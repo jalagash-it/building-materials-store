@@ -3,5 +3,8 @@
     "topbar": {
       "aboutUs": "About Us"
     }
+  },
+  "main": {
+    "featuredProducts": "Features products" 
   }
 }
