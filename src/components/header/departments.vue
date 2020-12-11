@@ -63,7 +63,7 @@
 
         <button class="departments__button" @click="onClickButton">
             <Menu18x14Svg class="departments__button-icon" />
-            Shop By Category
+            {{ $t('header.departments.ShopByCategory') }}
             <ArrowRoundedDown9x6Svg class="departments__button-arrow" />
         </button>
     </div>

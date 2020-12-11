@@ -19,7 +19,7 @@
                     @focus="onCategoryFocus"
                 >
                     <option value="">
-                        All Categories
+                       {{ $t('header.search.AllCategories') }} 
                     </option>
                     <option
                         v-for="category in categories"
