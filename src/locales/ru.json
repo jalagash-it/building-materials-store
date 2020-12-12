@@ -14,11 +14,11 @@
             "AllCategories": "Все категории"
         },
         "site-header": {
-          "CustomerService": "Обслуживание клиентов"
+            "CustomerService": "Обслуживание клиентов"
         },
         "departments": {
-          "ShopByCategory": "Магазин по категориям"
-      }
+            "ShopByCategory": "Магазин по категориям"
+        }
     },
     "main": {
         "featuredProducts": "Рекомендуемые товары",
@@ -26,9 +26,13 @@
         "Bestsellers": "Бестселлеры",
         "NewArrivals": "Новые поступления",
         "LatestNews": "Последние новости"
-
     },
     "common": {
         "all": "все"
+    },
+    "products": {
+        "powerTools": "Электроинструменты",
+        "handTools": "Ручные инструменты",
+        "plumbing": "Сантехника"
     }
 }

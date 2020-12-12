@@ -30,5 +30,10 @@
     },
     "common": {
         "all": "Барлығы"
+    },
+    "products":{
+        "powerTools": "Электр құралдары",
+        "handTools": "Қол құралдары",
+        "plumbing": "Сантехника"
     }
 }
