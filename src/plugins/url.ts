@@ -42,10 +42,10 @@ function make (context: Context) {
             return '/shop/track-order'
         },
         signIn () {
-            return '/account'
+            return '/account/login'
         },
         signUp () {
-            return '/account'
+            return '/account/login'
         },
         signOut () {
             return '/account'
