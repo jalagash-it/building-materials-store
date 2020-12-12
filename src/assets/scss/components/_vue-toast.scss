@@ -1,0 +1,62 @@
+/*
+// .vue-toast
+*/
+@import '../variables';
+
+
+@mixin local-define-scheme($type) {
+    background: map_get(map_get($alerts, $type), main);
+    color: map_get(map_get($alerts, $type), opposite);
+
+    &:hover {
+        background: darken(map_get(map_get($alerts, $type), main), 4%);
+    }
+}
+
+
+.vue-toast {
+    margin: 12px 12px 0;
+    user-select: none;
+    box-shadow: 0 1px 3px rgba(#000, .07);
+    border-radius: 2px;
+    padding: .75rem .875rem;
+    transition: background .12s ease-in-out;
+    font-size: 15px;
+    line-height: 1.375;
+    cursor: pointer;
+
+
+    &:hover {
+        transition-duration: .1s;
+        box-shadow: 0 1px 3px rgba(#000, .07);
+    }
+    &:active {
+        transition-duration: 0s;
+    }
+
+    &.primary {
+        @include local-define-scheme(primary);
+    }
+    &.warning {
+        @include local-define-scheme(warning);
+    }
+    &.info {
+        @include local-define-scheme(info);
+    }
+    &.error {
+        @include local-define-scheme(danger);
+    }
+    &.success {
+        @include local-define-scheme(success);
+    }
+
+    .notification-title {
+        font-weight: $font-weight-medium;
+    }
+    .notification-content {
+        font-size: 14px;
+    }
+    .notification-title + .notification-content {
+        margin-top: .3125rem;
+    }
+}

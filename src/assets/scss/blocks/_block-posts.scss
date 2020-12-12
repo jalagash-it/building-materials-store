@@ -1,0 +1,63 @@
+/*
+// .block-posts
+*/
+@import '../variables';
+@import '../functions';
+@import '../mixins/post-card';
+
+.block-posts {
+    position: relative;
+    z-index: 1;
+}
+.block-posts[data-layout="list"] {
+    @media (min-width: breakpoint(sm-start)) {
+        .post-card {
+            @include post-card-list();
+            @include post-card-list-sm();
+        }
+    }
+    @media (min-width: breakpoint(lg-start)) and (max-width: breakpoint(lg-end)) {
+        .post-card {
+            @include post-card-list-xs();
+        }
+    }
+    @media (max-width: breakpoint(xs-end)) {
+        .post-card {
+            @include post-card-grid();
+        }
+    }
+}
+
+
+.block-posts[data-layout^="grid-"] {
+    .post-card {
+        @include post-card-grid();
+    }
+}
+.block-posts[data-layout="grid-3"] {
+    &[data-mobile-columns="2"] {
+        .post-card {
+            @media (min-width: 460px) and (max-width: 768px - 1px) {
+                @include post-card-grid-sm();
+            }
+            @media (max-width: 460px - 1px) {
+                @include post-card-grid-xs();
+            }
+        }
+    }
+}
+.block-posts[data-layout="grid-4"] {
+    .post-card {
+        @media (min-width: 460px) {
+            @include post-card-grid-sm();
+        }
+    }
+
+    &[data-mobile-columns="2"] {
+        .post-card {
+            @media (max-width: 460px - 1px) {
+                @include post-card-grid-xs();
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+/*
+// .vue-slider
+*/
+@import '../variables';
+
+
+$local-handle-size: 16px;
+$local-handle-inner-size: 6px;
+
+
+.vue-slider-rail {
+    background: $vue-slider-bg-color;
+    border-radius: 3px;
+}
+.vue-slider-process {
+    background: $vue-slider-connect-color;
+    border-radius: 3px;
+}
+.vue-slider-dot-handle {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: $vue-slider-border-color;
+    box-shadow: 0 0 0 0 rgba($vue-slider-border-color, 0);
+    transition: box-shadow .2s;
+    position: relative;
+
+    &:after {
+        top: 0;
+        display: block;
+        content: '';
+        position: absolute;
+        width: $local-handle-inner-size;
+        height: $local-handle-inner-size;
+        margin: ($local-handle-size - $local-handle-inner-size) / 2;
+        border-radius: $local-handle-inner-size / 2;
+        background: $vue-slider-handle-color;
+        transition: transform .2s;
+    }
+}
+.vue-slider-dot:focus {
+    .vue-slider-dot-handle {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba($vue-slider-border-color, .3);
+
+        &:after {
+            transform: scale(0);
+        }
+    }
+}

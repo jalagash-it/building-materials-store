@@ -1,0 +1,16 @@
+/*
+// .widget-aboutus
+*/
+@import '../variables';
+@import '../mixins/card';
+
+
+.widget-aboutus {
+    @include card();
+
+    padding: 28px;
+}
+.widget-aboutus__socials {
+    display: block;
+    margin-top: 20px;
+}

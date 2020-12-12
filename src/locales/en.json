@@ -1,0 +1,33 @@
+{
+    "header": {
+        "topbar": {
+            "aboutUs": "About Us",
+            "Contacts": "Contacts",
+            "StoreLocation": "Store Location",
+            "TrackOrder": "Track Order",
+            "Blog": "Blog",
+            "MyAccount": "My Account",
+            "Currency": "Currency",
+            "Language:": "Language:"
+        },
+        "search": {
+            "AllCategories": "All Categories"
+        },
+        "site-header": {
+            "CustomerService": "Customer Service"
+        },
+        "departments": {
+            "ShopByCategory": "Shop By Category"
+        }
+    },
+    "main": {
+        "featuredProducts": "Features products",
+        "popularCategories": "Popular categories",
+        "Bestsellers": "Bestsellers",
+        "NewArrivals": "New arrivals",
+        "LatestNews": "Latest news"
+    },
+    "common": {
+        "all": "All"
+    }
+}

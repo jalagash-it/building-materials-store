@@ -1,0 +1,10 @@
+@mixin only-edge() {
+    @supports (-ms-ime-align:auto) {
+        @content;
+    }
+}
+@mixin only-ie() {
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        @content;
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "header": {
+        "topbar": {
+            "aboutUs": "О нас",
+            "Contacts": "Контакты",
+            "StoreLocation": "Локация магазина",
+            "TrackOrder": "Отследить заказ",
+            "Blog": "Блог",
+            "MyAccount": "Мой аккаунт",
+            "Currency": "Валюта",
+            "Language:": "Язык"
+        },
+        "search": {
+            "AllCategories": "Все категории"
+        },
+        "site-header": {
+          "CustomerService": "Обслуживание клиентов"
+        },
+        "departments": {
+          "ShopByCategory": "Магазин по категориям"
+      }
+    },
+    "main": {
+        "featuredProducts": "Рекомендуемые товары",
+        "popularCategories": "Популярные категории",
+        "Bestsellers": "Бестселлеры",
+        "NewArrivals": "Новые поступления",
+        "LatestNews": "Последние новости"
+
+    },
+    "common": {
+        "all": "все"
+    }
+}
