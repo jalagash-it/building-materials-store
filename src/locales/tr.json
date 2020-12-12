@@ -1,0 +1,34 @@
+{
+    "header": {
+        "topbar": {
+            "aboutUs": "Hakkımızda",
+            "Contacts": "Kişiler",
+            "StoreLocation": "Mağaza konumu",
+            "TrackOrder": "Siparişi takip et",
+            "Blog": "Blog",
+            "MyAccount": "Hesabım",
+            "Currency": "Para Birimi",
+            "Language:": "Dil"
+        },
+        "search": {
+            "AllCategories": "Tüm Kategoriler"
+        },
+        "site-header": {
+          "CustomerService": "Müşteri Hizmetleri"
+        },
+        "departments": {
+          "ShopByCategory": "Kategoriye Göre Alışveriş"
+      }
+    },
+    "main": {
+        "featuredProducts": "Öne Çıkan Ürünler",
+        "popularCategories": "Popüler Kategoriler",
+        "Bestsellers": "En Çok Satanlar",
+        "NewArrivals": "Yeni Gelenler",
+        "LatestNews": "En Son Haberler"
+
+    },
+    "common": {
+        "all": "tümü"
+    }
+}
