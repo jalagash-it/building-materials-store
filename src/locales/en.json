@@ -29,5 +29,10 @@
     },
     "common": {
         "all": "All"
+    },
+    "products": {
+        "powerTools": "Power Tools",
+        "handTools": "Hand Tools",
+        "plumbing": "Plumbing"
     }
 }
