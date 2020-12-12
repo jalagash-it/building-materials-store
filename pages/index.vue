@@ -3,7 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">
-        building-materials-store ...
+        Құрылыс заттар дүкені ...
       </h1>
       <div class="links">
         <a
