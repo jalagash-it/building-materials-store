@@ -1,6 +1,6 @@
 <template>
     <div class="account-menu">
-        <form class="account-menu__form">
+        <form class="account-menu__form" @submit="onSubmit">
             <div class="account-menu__form-title">
                 Log In to Your Account
             </div>
@@ -78,10 +78,18 @@
 
 import { Vue, Component } from 'vue-property-decorator'
 import AppLink from '~/components/shared/app-link.vue'
-
+import { State } from 'vuex-class'
+import { RootState } from '~/store'
+import IUser from '../../interfaces/user'
 @Component({
     components: { AppLink }
 })
-export default class AccountMenu extends Vue { }
+export default class AccountMenu extends Vue { 
+    @State((state: RootState) => state.auth.user) user!: IUser
+    onSubmit(evt:any){
+        evt.preventDefault();
+
+    }
+}
 
 </script>
