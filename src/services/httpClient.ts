@@ -1,4 +1,4 @@
-const baseUrl = 'https://bms-server.oqy.kz/api';
+const baseUrl = 'http://localhost:8001/api';
 
 const http = {
     async get(url: string): Promise<any> {

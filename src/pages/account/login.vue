@@ -70,6 +70,7 @@
                   <button type="submit" class="btn btn-primary mt-4">
                     {{ $t("auth.signIn") }}
                   </button>
+                  {{ JSON.stringify(user || null) }}
                 </form>
               </div>
             </div>
@@ -135,6 +136,9 @@ import { Vue, Component } from "vue-property-decorator";
 import PageHeader from "~/components/shared/page-header.vue";
 import Check9x7Svg from "~/svg/check-9x7.svg";
 import authApi from "~/api/auth";
+import { Getter, Mutation, State } from "vuex-class";
+import IUser from "~/interfaces/user";
+import { RootState } from "~/store";
 
 @Component({
   components: { PageHeader, Check9x7Svg },
@@ -143,6 +147,9 @@ import authApi from "~/api/auth";
 export default class Page extends Vue {
   logUser: { email: string; password: string; remember: boolean };
   regUser: { email: string; password: string; confirm: string };
+  @State((state: RootState) => state.auth.user) user!: IUser;
+  // @Getter("auth/getUser") user!: IUser;
+  @Mutation("auth/setUser") setUser!: (user: IUser) => void;
 
   constructor() {
     super();
@@ -151,9 +158,21 @@ export default class Page extends Vue {
   }
   onLogin(evt: any) {
     evt.preventDefault();
-    authApi.login(this.logUser).then((res) => {
-      this.$notify(res);
-    });
+    authApi
+      .login(this.logUser)
+      .then((user) => {
+        this.$notify("Жүйеге кірдіңіз");
+        this.setUser(user);
+      })
+      .catch((err) => {
+        this.$notify({
+          type: "error",
+          title: "error",
+          text: err.message,
+        });
+
+        //users.users_email_unique
+      });
   }
   onRegister(evt: any) {
     evt.preventDefault();
