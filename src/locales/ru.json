@@ -20,6 +20,20 @@
           "ShopByCategory": "Магазин по категориям"
       }
     },
+    "auth":{
+
+        "homePage":"Главный страница",
+        "MyAccount": "Мой аккаунт",
+        "signIn": "Вход",
+        "signUp":"Регистрация",
+        "Email": "Email",
+        "Password": "Пароль",
+        "repeatPassword": "Повторите пароль",
+        "ForgottenPassword": "Забыли пароль",
+        "rememberMe": "Сохранить"
+
+        },
+
     "main": {
         "featuredProducts": "Рекомендуемые товары",
         "popularCategories": "Популярные категории",
