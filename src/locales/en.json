@@ -20,6 +20,20 @@
             "ShopByCategory": "Shop By Category"
         }
     },
+    "auth":{
+
+        "homePage":"Home",
+        "MyAccount": "My Account",
+        "signIn": "Login",
+        "signUp":"Regitr",
+        "Email": "Email",
+        "Password": "Password",
+        "repeatPassword": "Repeat Password",
+        "ForgottenPassword": "Forgotten Password?",
+        "rememberMe": "Remember Me"
+
+        },
+
     "main": {
         "featuredProducts": "Features products",
         "popularCategories": "Popular categories",
@@ -29,5 +43,10 @@
     },
     "common": {
         "all": "All"
+    },
+    "products": {
+        "powerTools": "Power Tools",
+        "handTools": "Hand Tools",
+        "plumbing": "Plumbing"
     }
 }

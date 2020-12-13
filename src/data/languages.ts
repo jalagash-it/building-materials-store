@@ -24,6 +24,14 @@ const dataLanguages: ILanguage[] = [
         icon: '/images/languages/language-3.png',
         direction: 'ltr',
         messages: require('../locales/kk.json')
+    },
+    {
+        locale: 'tr',
+        code: 'TR',
+        name: 'Turkish',
+        icon: '/images/languages/language-4.png',
+        direction: 'ltr',
+        messages: require('../locales/tr.json')
     }
 ]
 

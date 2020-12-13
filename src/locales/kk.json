@@ -20,6 +20,20 @@
           "ShopByCategory": "Дүкен санаттары бойынша"
       }
     },
+   "auth":{
+
+            "homePage":"Басты бет",
+            "MyAccount": "Менің аккаунтым",
+            "signIn": "Кіру",
+            "signUp":"Тіркелу",
+            "Email": "Email",
+            "Password": "Құпия сөз",
+            "repeatPassword": "Құпия сөзді қайталаңыз",
+            "ForgottenPassword": "Құпия сөзді ұмыттыңыз ба?",
+            "rememberMe": "Сақтап қалу"
+
+            },
+
     "main": {
         "featuredProducts": "Ұсынылған тауарлар",
         "popularCategories": "Танымал Санаттар",
@@ -30,5 +44,10 @@
     },
     "common": {
         "all": "Барлығы"
+    },
+    "products":{
+        "powerTools": "Электр құралдары",
+        "handTools": "Қол құралдары",
+        "plumbing": "Сантехника"
     }
 }

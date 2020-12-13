@@ -14,21 +14,39 @@
             "AllCategories": "Все категории"
         },
         "site-header": {
-          "CustomerService": "Обслуживание клиентов"
+            "CustomerService": "Обслуживание клиентов"
         },
         "departments": {
-          "ShopByCategory": "Магазин по категориям"
-      }
+            "ShopByCategory": "Магазин по категориям"
+        }
     },
+    "auth":{
+
+        "homePage":"Главный страница",
+        "MyAccount": "Мой аккаунт",
+        "signIn": "Вход",
+        "signUp":"Регистрация",
+        "Email": "Email",
+        "Password": "Пароль",
+        "repeatPassword": "Повторите пароль",
+        "ForgottenPassword": "Забыли пароль",
+        "rememberMe": "Сохранить"
+
+        },
+
     "main": {
         "featuredProducts": "Рекомендуемые товары",
         "popularCategories": "Популярные категории",
         "Bestsellers": "Бестселлеры",
         "NewArrivals": "Новые поступления",
         "LatestNews": "Последние новости"
-
     },
     "common": {
         "all": "все"
+    },
+    "products": {
+        "powerTools": "Электроинструменты",
+        "handTools": "Ручные инструменты",
+        "plumbing": "Сантехника"
     }
 }

@@ -40,15 +40,15 @@
       :categories="categories"
     />
 
-    <BlockProductsCarouselContainer
-      v-slot:default="{ products, isLoading, tabs, handleTabChange }"
-      :tabs="[
-        { id: 1, name: $t('all'), categorySlug: undefined },
-        { id: 2, name: 'Power Tools', categorySlug: 'power-tools' },
-        { id: 3, name: 'Hand Tools', categorySlug: 'hand-tools' },
-        { id: 4, name: 'Plumbing', categorySlug: 'plumbing' }
-      ]"
-      :initial-data="latestProducts"
+        <BlockProductsCarouselContainer
+            v-slot:default="{ products, isLoading, tabs, handleTabChange }"
+            :tabs="[
+                { id: 1, name:  $t('common.all'), categorySlug: undefined },
+                { id: 2, name: $t('products.powerTools'), categorySlug: 'power-tools' },
+                { id: 3, name: $t('products.handTools'), categorySlug: 'hand-tools' },
+                { id: 4, name: $t('products.plumbing'), categorySlug: 'plumbing' }
+            ]"
+            :initial-data="latestProducts"
       :data-source="latestProductsSource"
     >
       <BlockProductsCarousel
