@@ -1,3 +1,4 @@
+import { AuthState } from '~/store/auth'
 import { OffcanvasCartState } from '~/store/offcanvasCart'
 import { MobileMenuState } from '~/store/mobileMenu'
 import { OptionsState } from '~/store/options'
@@ -9,6 +10,7 @@ import { LocaleState } from '~/store/locale'
 import { ShopState } from '~/store/shop'
 
 export interface RootState {
+    auth:AuthState,
     cart: CartState;
     offcanvasCart: OffcanvasCartState;
     mobileMenu: MobileMenuState;
