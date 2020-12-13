@@ -1,16 +1,11 @@
 <template>
   <div>
     <PageHeader
-        
-            :title="$t('auth.MyAccount')"
-            
+      :title="$t('auth.MyAccount')"
       :breadcrumb="[
-                {title: $t('auth.homePage'), url: ''},
-                 {title: 'Breadcrumb', url: ''},
-                 {title: $t('auth.MyAccount'), url: ''},
-
-               
-                
+        { title: $t('auth.homePage'), url: '' },
+        { title: 'Breadcrumb', url: '' },
+        { title: $t('auth.MyAccount'), url: '' },
       ]"
     />
 
@@ -20,48 +15,37 @@
           <div class="col-md-6 d-flex flex-column">
             <div class="card flex-grow-1 mb-md-0">
               <div class="card-body">
-
                 <h3 class="card-title">
-                              
-                                                          
-                                 
-                                  {{$t('auth.signIn')}}
-                                    
-                   
-                                                                   
-                                 </h3>
+                  {{ $t("auth.signIn") }}
+                </h3>
                 <form @submit="onLogin">
                   <div class="form-group">
-                                        <label for="login-email">
-                                        {{$t('auth.Email')}}
-
-                                         </label>
+                    <label for="login-email">
+                      {{ $t("auth.Email") }}
+                    </label>
                     <input
                       id="login-email"
                       class="form-control"
                       type="email"
-                                               :placeholder="$t('auth.Email')"
+                      :placeholder="$t('auth.Email')"
                       v-model="logUser.email"
                     />
                   </div>
                   <div class="form-group">
-                                        <label for="login-password">  
-                                                                    
-                                          {{$t('auth.Password')}}
-                                            
-                                    </label>
+                    <label for="login-password">
+                      {{ $t("auth.Password") }}
+                    </label>
                     <input
                       id="login-password"
                       class="form-control"
                       type="password"
-                                                :placeholder="$t('auth.Password')"
+                      :placeholder="$t('auth.Password')"
                       v-model="logUser.password"
                     />
                     <small class="form-text text-muted">
-                                            <a href="">
-                                            {{$t('auth.ForgottenPassword')}}
-                                            
-                                            </a>
+                      <a href="">
+                        {{ $t("auth.ForgottenPassword") }}
+                      </a>
                     </small>
                   </div>
                   <div class="form-group">
@@ -78,14 +62,13 @@
                           <Check9x7Svg class="input-check__icon" />
                         </span>
                       </span>
-                                            <label class="form-check-label" for="login-remember">
-                                            {{$t('auth.rememberMe')}}
-
-                                            </label>
+                      <label class="form-check-label" for="login-remember">
+                        {{ $t("auth.rememberMe") }}
+                      </label>
                     </div>
                   </div>
                   <button type="submit" class="btn btn-primary mt-4">
-                                        {{$t('auth.signIn')}}
+                    {{ $t("auth.signIn") }}
                   </button>
                 </form>
               </div>
@@ -95,44 +78,47 @@
             <div class="card flex-grow-1 mb-0">
               <div class="card-body">
                 <h3 class="card-title">
-                                {{$t('auth.signUp')}}
-                                  
+                  {{ $t("auth.signUp") }}
                 </h3>
                 <form @submit="onRegister">
                   <div class="form-group">
-                                        <label for="register-email">                                        
-                                        {{$t('auth.Email')}}
-                                    </label>
+                    <label for="register-email">
+                      {{ $t("auth.Email") }}
+                    </label>
                     <input
                       id="register-email"
                       class="form-control"
                       type="email"
-                                            :placeholder="$t('auth.Email')"
+                      :placeholder="$t('auth.Email')"
                       v-model="regUser.email"
                     />
                   </div>
                   <div class="form-group">
-                                        <label for="register-password"> {{$t('auth.Password')}}</label>
+                    <label for="register-password">
+                      {{ $t("auth.Password") }}</label
+                    >
                     <input
                       id="register-password"
                       class="form-control"
                       type="password"
-                                            :placeholder="$t('auth.Password')"
+                      :placeholder="$t('auth.Password')"
                       v-model="regUser.password"
                     />
                   </div>
                   <div class="form-group">
-                                        <label for="register-confirm"> {{$t('auth.repeatPassword')}}</label>
+                    <label for="register-confirm">
+                      {{ $t("auth.repeatPassword") }}</label
+                    >
                     <input
                       id="register-confirm"
                       class="form-control"
                       type="password"
-                                            :placeholder="$t('auth.Password')"
+                      :placeholder="$t('auth.Password')"
                       v-model="regUser.confirm"
                     />
                   </div>
                   <button type="submit" class="btn btn-primary mt-4">
-                                    {{$t('auth.signUp')}}
+                    {{ $t("auth.signUp") }}
                   </button>
                 </form>
               </div>
@@ -174,7 +160,7 @@ export default class Page extends Vue {
     authApi
       .register(this.regUser)
       .then((res) => {
-        this.$notify("Ò³ðêåóäåí ñ?òò³ ?òò³?³ç");
+        this.$notify("Ð¢Ñ–Ñ€ÐºÐµÑƒÐ´ÐµÐ½ ÑÓ™Ñ‚Ñ‚Ñ– Ó©Ñ‚Ñ‚Ñ–Ò£Ñ–Ð·");
       })
       .catch((err) => {
         this.$notify({
