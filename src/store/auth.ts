@@ -1,12 +1,12 @@
 import { GetterTree, MutationTree } from 'vuex'
 import IUser from '~/interfaces/user';
 export interface AuthState {
-    user: IUser
+    user: IUser | null
 }
 
 function getDefaultState(): AuthState {
     return {
-        user: { id: -1, email: '', token: '' }
+        user: null
     }
 }
 

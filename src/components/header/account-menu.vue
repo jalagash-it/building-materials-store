@@ -1,6 +1,6 @@
 <template>
     <div class="account-menu">
-        <form class="account-menu__form" @submit="onSubmit">
+        <form class="account-menu__form" @submit="onSubmit" v-if="user===null">
             <div class="account-menu__form-title">
                 Log In to Your Account
             </div>
@@ -26,6 +26,7 @@
                 </AppLink>
             </div>
         </form>
+        <template v-if="user!==null">
         <div class="account-menu__divider" />
         <AppLink :to="$url.account()" class="account-menu__user">
             <div class="account-menu__user-avatar">
@@ -33,11 +34,11 @@
             </div>
             <div class="account-menu__user-info">
                 <div class="account-menu__user-name">
-                    Helena Garcia
+                    {{user.email}}
                 </div>
-                <div class="account-menu__user-email">
-                    stroyka@example.com
-                </div>
+                <!-- <div class="account-menu__user-email">
+                   
+                </div> -->
             </div>
         </AppLink>
         <div class="account-menu__divider" />
@@ -71,6 +72,7 @@
                 </AppLink>
             </li>
         </ul>
+        </template>
     </div>
 </template>
 
