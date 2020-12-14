@@ -17,7 +17,7 @@ export const getters: GetterTree<AuthState, {}> = {
 
 }
 export const mutations: MutationTree<AuthState> = {
-    setUser(state, user) {
+    setUser(state, user: IUser | null) {
         state.user = user
     }
 }

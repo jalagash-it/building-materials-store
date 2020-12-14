@@ -178,9 +178,9 @@ export default class HomePageOne extends Vue {
         this.columns = columns;
       });
     }
-    authApi.getCurrent().then((res) => {
-      this.$notify(JSON.stringify(res));
-    });
+    // authApi.getCurrent().then((res) => {
+    //   this.$notify(JSON.stringify(res));
+    // });
   }
 
   featuredProductsSource(tab: { categorySlug: string }): Promise<IProduct[]> {

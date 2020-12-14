@@ -70,7 +70,6 @@
                   <button type="submit" class="btn btn-primary mt-4">
                     {{ $t("auth.signIn") }}
                   </button>
-                  {{user}}
                 </form>
               </div>
             </div>
