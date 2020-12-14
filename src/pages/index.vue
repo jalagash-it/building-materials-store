@@ -195,3 +195,4 @@ export default class HomePageOne extends Vue {
   }
 }
 </script>
+//Almat-Fork
