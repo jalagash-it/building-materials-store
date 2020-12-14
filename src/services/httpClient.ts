@@ -16,7 +16,8 @@ const http = {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'token': String(localStorage.getItem('token'))
             },
             body: JSON.stringify(data)
         })
@@ -24,7 +25,7 @@ const http = {
                 if (!response.ok) {
                     throw new Error(response.status === 409 ? "409" : "400");
                 }
-                return response.json()
+                return response.json();
             })
             .catch(err => {
                 console.log(err);

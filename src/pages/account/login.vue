@@ -70,7 +70,7 @@
                   <button type="submit" class="btn btn-primary mt-4">
                     {{ $t("auth.signIn") }}
                   </button>
-                  {{ JSON.stringify(user || null) }}
+                  {{user}}
                 </form>
               </div>
             </div>
