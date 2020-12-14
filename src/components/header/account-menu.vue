@@ -67,7 +67,7 @@
         <div class="account-menu__divider" />
         <ul class="account-menu__links">
             <li>
-                <AppLink :to="$url.signOut()">
+                <AppLink @click="logout">
                     Logout
                 </AppLink>
             </li>
@@ -80,17 +80,22 @@
 
 import { Vue, Component } from 'vue-property-decorator'
 import AppLink from '~/components/shared/app-link.vue'
-import { State } from 'vuex-class'
+import { Getter, Mutation, State } from "vuex-class";
 import { RootState } from '~/store'
 import IUser from '../../interfaces/user'
 @Component({
     components: { AppLink }
 })
 export default class AccountMenu extends Vue { 
-    @State((state: RootState) => state.auth.user) user!: IUser
+    @State((state: RootState) => state.auth.user) user!: IUser;
+    @Mutation("auth/setUser") setUser!: (user: IUser|null) => void;
     onSubmit(evt:any){
         evt.preventDefault();
 
+    }
+    logout(){
+        localStorage.removeItem('token');
+        this.setUser(null);
     }
 }
 
