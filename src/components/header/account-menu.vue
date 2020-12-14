@@ -67,9 +67,11 @@
         <div class="account-menu__divider" />
         <ul class="account-menu__links">
             <li>
-                <AppLink @click="logout">
-                    Logout
-                </AppLink>
+                <b-button @click="logout" block>
+                  
+                        Logout
+                
+                </b-button>
             </li>
         </ul>
         </template>
