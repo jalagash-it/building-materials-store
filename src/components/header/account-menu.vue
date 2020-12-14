@@ -6,12 +6,12 @@
             </div>
             <div class="form-group">
                 <label for="header-signin-email" class="sr-only">Email address</label>
-                <input id="header-signin-email" type="email" class="form-control form-control-sm" placeholder="Email address">
+                <input v-model="logUser.email" id="header-signin-email" type="email" class="form-control form-control-sm" placeholder="Email address">
             </div>
             <div class="form-group">
                 <label for="header-signin-password" class="sr-only">Password</label>
                 <div class="account-menu__form-forgot">
-                    <input id="header-signin-password" type="password" class="form-control form-control-sm" placeholder="Password">
+                    <input v-model="logUser.password" id="header-signin-password" type="password" class="form-control form-control-sm" placeholder="Password">
                     <a href="" class="account-menu__form-forgot-link">Forgot?</a>
                 </div>
             </div>
@@ -83,17 +83,33 @@
 import { Vue, Component } from 'vue-property-decorator'
 import AppLink from '~/components/shared/app-link.vue'
 import { Getter, Mutation, State } from "vuex-class";
+import authApi from "~/api/auth";
 import { RootState } from '~/store'
 import IUser from '../../interfaces/user'
 @Component({
     components: { AppLink }
 })
 export default class AccountMenu extends Vue { 
+    logUser = { email: '', password: '', remember: true };
     @State((state: RootState) => state.auth.user) user!: IUser;
     @Mutation("auth/setUser") setUser!: (user: IUser|null) => void;
     onSubmit(evt:any){
         evt.preventDefault();
+        authApi
+        .login(this.logUser)
+        .then((user) => {
+            this.$notify("Жүйеге кірдіңіз");
+            this.setUser(user);
+        })
+        .catch((err) => {
+            this.$notify({
+            type: "error",
+            title: "error",
+            text: err.message,
+            });
 
+            //users.users_email_unique
+        });
     }
     logout(){
         localStorage.removeItem('token');
